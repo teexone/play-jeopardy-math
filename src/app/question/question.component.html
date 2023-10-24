@@ -1,0 +1,17 @@
+<div class="question">
+    <div class="question__points">{{question!.points}}</div>
+    <div class="question__text">{{question!.question}}</div> 
+    <div class="question__answer" [hidden]="showAnswer === false">{{question!.answer}}</div>
+    <div class="question__panel">
+    <div class="question__panel">
+        <div class="question__panel">
+            <ng-container *ngFor="let team of teams">
+                <button class="question__button plus" (click)="writeAnswer(team.name)">+ {{team.name}}</button>
+            </ng-container>
+        </div>
+        <div class="question__panel">
+            <button class="question__button" (click)="showAnswer = !showAnswer">{{showAnswer ? "Скрыть" : "Показать" }} ответ</button>
+            <button class="question__button" [routerLink]="['/play']">Назад</button>
+        </div>
+    </div>
+</div>

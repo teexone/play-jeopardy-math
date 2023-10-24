@@ -1,0 +1,76 @@
+<div>
+    Команды:
+    <ul>
+        <li *ngFor="let team of gameService.state.teams">
+            {{team.name}}
+            <button class="button" (click)="removeTeam(team.name)">Удалить</button>
+        </li>
+    </ul>
+</div>
+<hr>
+<div>
+    Категории:
+    <ul>
+        <li *ngFor="let category of gameService.state.categories">
+            {{category}}
+            <button class="button" (click)="removeCategory(category)">Удалить</button>
+        </li>
+    </ul>
+</div>
+<hr>
+<div>
+    Вопросы:
+    <ul>
+        <li *ngFor="let question of gameService.state.questions">
+            {{question.question}}
+            <button class="button" (click)="removeQuestion(question.id)">Удалить</button>
+        </li>
+    </ul>
+</div>
+<div>
+    <button class="button" (click)="newGame()">Новая Игра</button>
+    <form>
+        <input type="file" value="Загрузить" (change)="gameService.uploadJSON($event)" accept=".game" placeholder="Загрузить">
+    </form>
+</div>
+<hr>
+<div>
+    Добавить категорию
+    <form>
+        <label for="category">Название категории</label>
+        <input type="text" id="category" name="category" [(ngModel)]="category">
+        <input type="submit" value="Добавить" (click)="addCategory()">
+    </form> 
+</div>
+<hr>
+<div>
+    <label for="category">Добавить вопрос</label>
+    <form>
+        <label for="question">Вопрос</label>
+        <textarea type="text" id="question" name="question" [(ngModel)]="question" rows="4" cols="50"></textarea>
+        <label for="answer">Ответ</label>
+        <textarea type="text" id="answer" name="answer" [(ngModel)]="answer" rows="4" cols="50"></textarea>
+        <label for="points">Баллы</label>
+        <input type="text" id="points" name="points" [(ngModel)]="points"  cols="50">
+        <label for="category">Категория</label>
+        <select name="category" id="category" [(ngModel)]="category">
+            <option *ngFor="let category of gameService.state.categories" [value]="category">{{category}}</option>
+        </select>
+        <input type="submit" value="Добавить" (click)="addQuestion()">
+    </form> 
+</div>
+<hr>
+
+<div>
+    <label for="category">Добавить команду</label>
+    <form>
+        <input type="text" id="team" name="team" [(ngModel)]="team">
+        <input type="submit" value="Добавить" (click)="addTeam()">
+    </form>
+</div>
+<hr>
+<div>
+    <button class="button" (click)="saveState()">Сохранить</button>
+    <button class="button" [routerLink]="['/']">В меню</button>
+    <button class="button" (click)="gameService.downloadJSON()">Экспорт</button>
+</div>

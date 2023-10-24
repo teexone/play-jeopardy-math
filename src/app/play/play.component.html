@@ -1,0 +1,28 @@
+<!-- Jeopardy Game -->
+
+<div class="game" [ngStyle]="{'grid-template-rows': 'repeat(' + state.categories.length + ', 1fr)', 'grid-template-columns': 'repeat(' + (getMaximumNumberOfQuestions() + 1)  + ', 1fr)'}">
+    <ng-container *ngFor="let category of state.categories">
+        <div class="category">
+            <div class="category__name">{{category}}</div>
+        </div>
+
+        <ng-container *ngFor="let question of getQuestionsOfCategory(category)">
+            <div class="question" [routerLink]="['/q', question.id]" [ngClass]="{'answered': isAnswered(question.id)}">
+                <div class="question__text">{{question.points}}</div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+<div class="panel teams">
+    <ng-container *ngFor="let team of state.teams">
+        <div class="team">
+            <div class="team__name">{{team.name}}</div>
+            <div class="team__points">{{teamScore(team.name)}}</div>
+        </div>
+    </ng-container>
+</div>
+<div class="panel buttons">
+    <button class="game__button" [routerLink]="['/']">В меню</button>
+    <button class="game__button" (click)="resetState()">Сбросить</button>
+    <button class="game__button" (click)="saveState()">Сохранить</button>
+</div>

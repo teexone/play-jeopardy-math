@@ -1,0 +1,95 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    background-color: #fff;
+    color: #000;
+
+    .question__points {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        padding: 1rem 0;
+    }
+    
+    .question__text {
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 2em;
+    }
+
+    .question__answer {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        color: #000;
+        width: 50%;
+        max-width: 600px;
+        text-align: center;
+        margin-bottom: 2em;
+        background-color: #b3ffe0;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            height: 100%;
+            display: block;
+            padding: 1rem 0;
+        }
+    }
+
+    .question__panel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        color: #000;
+    }
+
+    .question__button {
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        color: #000;
+        width: 50%;
+        max-width: 600px;
+        text-align: center;
+        background-color: #cdffe8;
+        &.plus {
+            background-color: #8bff47;
+        }
+
+        // Remove all default <a> styles
+        a {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            height: 100%;
+            display: block;
+            padding: 1rem 0;
+        }
+
+        &:hover {
+            background-color: #b3ffe0;
+            &.plus {
+                background-color: #a6ff72;
+            }
+        }
+    }
+
+}

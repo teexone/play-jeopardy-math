@@ -1,0 +1,5 @@
+<div class="menu">
+  <div class="menu__item" *ngFor="let item of menuItems">
+    <a [routerLink]="item.link">{{item.name}}</a>
+  </div>
+</div>
